@@ -9,12 +9,27 @@ function Heroes() {
             src='/documents.png'
             fill
             objectFit='contain'
+            className='dark:hidden'
+            alt='Documents'
+          />
+
+          <Image
+            src='/documents-dark.png'
+            fill
+            objectFit='contain'
+            className='hidden dark:block'
             alt='Documents'
           />
         </div>
 
         <div className='relative h-[400px] w-[400px] hidden md:block'>
-          <Image src='/reading.png' fill objectFit='contain' alt='Reading' />
+          <Image
+            src='/reading-dark.png'
+            fill
+            objectFit='contain'
+            alt='Reading'
+            className='hidden dark:block'
+          />
         </div>
       </div>
     </div>
