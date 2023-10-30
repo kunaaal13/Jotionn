@@ -4,6 +4,7 @@ import { DM_Sans } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/providers/theme-providers'
 import ConvexClientProvider from '@/components/providers/convex-provider'
+import { Toaster } from 'sonner'
 
 const font = DM_Sans({ subsets: ['latin'] })
 
@@ -42,6 +43,7 @@ export default function RootLayout({
             disableTransitionOnChange
             storageKey='jotion-theme-key'
           >
+            <Toaster position='bottom-center' />
             {children}
           </ThemeProvider>
         </ConvexClientProvider>
