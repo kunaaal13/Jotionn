@@ -1,7 +1,6 @@
 'use client'
 
 import { api } from '@/convex/_generated/api'
-import { useSearch } from '@/hooks/use-search'
 import { useUser } from '@clerk/clerk-react'
 import { useQuery } from 'convex/react'
 import { useRouter } from 'next/navigation'
@@ -15,6 +14,7 @@ import {
   CommandList,
 } from './ui/command'
 import { File } from 'lucide-react'
+import { useSearch } from '@/hooks/use-search'
 
 type SearchCommandProps = {}
 
