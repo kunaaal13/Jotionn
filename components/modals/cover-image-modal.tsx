@@ -28,14 +28,15 @@ function CoverImageModal({}: CoverImageModalProps) {
   }
 
   const onChange = async (file?: File) => {
-    console.log('uploading file', file)
-
     if (file) {
       setIsSubmitting(true)
       setFile(file)
 
       const res = await edgestore.publicFiles.upload({
         file,
+        options: {
+          replaceTargetUrl: coverImage.url,
+        },
       })
 
       await update({
