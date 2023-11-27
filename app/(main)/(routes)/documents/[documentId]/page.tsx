@@ -1,11 +1,12 @@
 'use client'
 
 import Cover from '@/components/cover'
+import Editor from '@/components/editor'
 import Toolbar from '@/components/toolbar'
 import { Skeleton } from '@/components/ui/skeleton'
 import { api } from '@/convex/_generated/api'
 import { Id } from '@/convex/_generated/dataModel'
-import { useQuery } from 'convex/react'
+import { useMutation, useQuery } from 'convex/react'
 
 type DocumentIDPageProps = {
   params: {
@@ -17,6 +18,15 @@ function DocumentIDPage({ params: { documentId } }: DocumentIDPageProps) {
   const document = useQuery(api.documents.getById, {
     documentId,
   })
+
+  const update = useMutation(api.documents.update)
+
+  const onChange = (content: string) => {
+    update({
+      id: documentId,
+      content,
+    })
+  }
 
   if (document === undefined) {
     return (
@@ -43,6 +53,7 @@ function DocumentIDPage({ params: { documentId } }: DocumentIDPageProps) {
       <Cover url={document.coverImage} />
       <div className='md:max-w-3xl lg:max-w-4xl mx-auto'>
         <Toolbar initialData={document} />
+        <Editor initialContent={document.content} onChange={onChange} />
       </div>
     </div>
   )
