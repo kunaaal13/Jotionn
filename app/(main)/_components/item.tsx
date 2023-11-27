@@ -73,7 +73,7 @@ function Item({
         onExpand?.()
       }
 
-      // router.push(`/documents/${documentId}`)
+      router.push(`/documents/${documentId}`)
     })
 
     toast.promise(promise, {
@@ -89,6 +89,8 @@ function Item({
 
     const promise = archive({
       id,
+    }).then(() => {
+      router.push(`/documents`)
     })
 
     toast.promise(promise, {
@@ -122,7 +124,7 @@ function Item({
       {documentIcon ? (
         <div className='shrink-0 mr-2 text-[18px]'>{documentIcon}</div>
       ) : (
-        <Icon className='shrink-0 h-[18px] mr-2' />
+        <Icon className='shrink-0 h-[18px] w-[18px] text-muted-foreground mr-2' />
       )}
 
       <span className='truncate'>{label}</span>
