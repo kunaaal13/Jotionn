@@ -55,8 +55,6 @@ function CoverImageModal({}: CoverImageModalProps) {
           <h2 className='text-center text-lg font-semibold'>Cover Image</h2>
         </DialogHeader>
 
-        <div>TODO: Upload image</div>
-
         <SingleImageDropzone
           className='w-full outline-none'
           disabled={isSubmitting}
